@@ -1,6 +1,4 @@
-You must install:
--[hubert_base.pt](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/hubert_base.pt)
--[ffmpeg](https://www.ffmpeg.org/)
+You must install [hubert_base.pt](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/hubert_base.pt) and [ffmpeg](https://www.ffmpeg.org/)
 
 Make sure to install the requirements from requirements.txt, as well with:
 pip install -r requirements.txt
@@ -10,9 +8,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
 python app.py
 
-You can find artist models:
--[RVC AI Voice model archive](https://docs.google.com/spreadsheets/d/1leF7_c2Qf5iQRVkmOF51ZSynOvEjz8fHqwriX1wUMPw/edit#gid=1227575351)
--[AI Hub on discord](https://discord.com/invite/aihub)
+You can find artist models at [RVC AI Voice model archive](https://docs.google.com/spreadsheets/d/1leF7_c2Qf5iQRVkmOF51ZSynOvEjz8fHqwriX1wUMPw/edit#gid=1227575351) and [AI Hub on discord](https://discord.com/invite/aihub)
 
 By:
 [Aidan Burrowes](linkedin.com/in/aidanburrowes/)
