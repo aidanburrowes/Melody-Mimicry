@@ -44,3 +44,8 @@ audioread
 uvicorn>=0.21.1
 colorama>=0.4.6
 torchcrepe
+flask
+psycopg
+pytube
+audio-separator
+flask_cors
