@@ -11,7 +11,7 @@ source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
 python app.py
 
 
-Make sure to install the requirements from requirements.txt, as well with:
+Make sure to install the requirements from requirements.txt IN THE VENV with:
 
 pip install -r requirements.txt
 
