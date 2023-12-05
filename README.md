@@ -1,0 +1,1 @@
+You must install hubert_base.pt, ffmpeg, and set up flask venv before uploading

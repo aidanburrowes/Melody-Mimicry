@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Melody Mimicry</title>
+  <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+  
+  
+  <header>
+    <h1 class ="title">Melody Mimicry</h1>
+  </header>
+
+  <section class="step step1">
+    <h2 class="stepstyle">Step 1: Choose AI Voice</h2>
+    <input type="text" id="artistsearch" placeholder="Search for artists...">
+    <div id="suggestions1"></div>
+  </section>
+
+  <section class="step step2">
+    <h2 class="stepstyle">Step 2: Pick a Song</h2>
+    <img src = "static/musicnotes/note2.png" class="notes2">
+
+    <input type="text" id="songsearch" placeholder="Search for Song...">
+    <div id="suggestions2"></div>
+   </section>
+
+  <section class="step step3">
+    <button id="finalizeButton">FINALIZE</button>
+    <!--when click finalize, bring information to aidan and get api-->
+    <img src = "static/musicnotes/newnote.png" class="notes1">
+       <div class="spinner hidden"></div>
+  </section>
+
+  <section class="step hiddenSection">
+    <h2>AI Song Complete!!</h2>
+    <p class = "nameSong" id="finalSong"></p>
+    <img src="static/musicnotes/picture.jpg" class="yeat">
+    
+    <div class="controls">
+      <img src="static/musicnotes/play-button.png" alt="Play" id="playBtn">
+      <img src="static/musicnotes/real_pause.png.png" alt="Pause" id="pauseBtn">
+      <img src="static/musicnotes/skip-forward.png.png" alt="Skip Forward" id="skipBtn">
+    </div>
+  </section>
+
+  <audio id="audioPlayer" src="static/mp3_files/yeat_test.mp3" preload="auto"></audio>
+
+  
+  <script type="module" src="static/js/kmp.js"></script>
+  <script type="module" src="static/js/script.js"></script>
+  <!--<script src="stringhash.js"></script>-->
+  
+
+</body>
+</html>
