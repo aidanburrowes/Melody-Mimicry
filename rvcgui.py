@@ -1,6 +1,5 @@
 import random
 import string
-from tkinter import filedialog
 import soundfile as sf
 # import customtkinter as ctk
 
@@ -313,16 +312,6 @@ def refresh_model_list():
     models_dir, f)) and any(f.endswith(".pth") for f in os.listdir(os.path.join(models_dir, f)))]
     model_list.configure(values=model_folders)
     model_list.update()
-
-def browse_zip():
-    global zip_file
-    zip_file = filedialog.askopenfilename(
-        initialdir=os.getcwd(),
-        title="Select file",
-        filetypes=(("zip files", "*.zip"), ("all files", "*.*")),
-    )
-    extract_model_from_zip(zip_file, models_dir)
-    refresh_model_list()
     
 def get_output_path(file_path):
     
