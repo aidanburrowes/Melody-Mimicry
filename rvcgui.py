@@ -2,7 +2,6 @@ import random
 import string
 from tkinter import filedialog
 import soundfile as sf
-import tkinter as tk
 # import customtkinter as ctk
 
 import os
