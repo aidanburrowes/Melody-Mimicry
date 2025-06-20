@@ -3,4 +3,5 @@ services:
     name: melody-mimicry
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: gunicorn rvcgui:app # or your correct entry point
+    pythonVersion: 3.10
