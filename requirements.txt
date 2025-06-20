@@ -3,6 +3,8 @@ flask-cors==6.0.1
 uvicorn==0.34.3
 fastapi==0.115.13
 gunicorn==21.2.0
+psycopg==3.2.9
+psycopg2-binary==2.9.10
 
 # Core ML/Audio stack
 torch==2.0.1
