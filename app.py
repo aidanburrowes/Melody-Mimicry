@@ -11,7 +11,7 @@ AudioSet by Google at https://research.google.com/audioset/download.html
 '''
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)
 
 # def main():
