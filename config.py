@@ -31,7 +31,7 @@ class Config:
         import sys
         if len(sys.argv) == 1 or sys.argv[0].endswith("gunicorn"):
             # Prevent this file from parsing gunicorn args
-            pass
+            return "python", 7865, False, False, False, False, False
         else:
             parser = argparse.ArgumentParser()
             parser.add_argument("--port", type=int, default=7865, help="Listen port")
