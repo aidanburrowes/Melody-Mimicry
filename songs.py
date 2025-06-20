@@ -1,6 +1,10 @@
 import psycopg2
-import creds
 from ai_vocals import createAIVocals
+import os
+
+cockroach_username = os.environ["COCKROACH_USERNAME"]
+cockroach_password = os.environ["COCKROACH_PASSWORD"]
+
 
 def getAllSongs():
     # Connect to database
@@ -8,8 +12,8 @@ def getAllSongs():
         host="hoarse-ray-6455.g8z.cockroachlabs.cloud", 
         port=26257,
         database="defaultdb", 
-        user=f"{creds.cockroach_username}",
-        password=f"{creds.cockroach_password}",
+        user=f"{cockroach_username}",
+        password=f"{cockroach_password}",
         sslmode="require" 
     )
     cur = conn.cursor()
@@ -28,8 +32,8 @@ def getSong(song_name, artist_name):
         host="hoarse-ray-6455.g8z.cockroachlabs.cloud", 
         port=26257,
         database="defaultdb", 
-        user=f"{creds.cockroach_username}",
-        password=f"{creds.cockroach_password}",
+        user=f"{cockroach_username}",
+        password=f"{cockroach_password}",
         sslmode="require" 
     )
     cur = conn.cursor()

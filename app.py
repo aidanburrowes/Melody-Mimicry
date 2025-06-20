@@ -3,6 +3,7 @@ import requests
 from songs import getSong, getAllSongs
 from artists import getAllArtists
 from flask_cors import CORS
+import os
 
 '''
 RVC GUI by Tiger14n at https://github.com/Tiger14n/RVC-GUI
@@ -13,6 +14,18 @@ AudioSet by Google at https://research.google.com/audioset/download.html
 
 app = Flask(__name__)
 CORS(app)
+
+try:
+    import creds
+    os.environ.setdefault("COCKROACH_USERNAME", creds.cockroach_username)
+    os.environ.setdefault("COCKROACH_PASSWORD", creds.cockroach_password)
+    os.environ.setdefault("AWS_S3_BUCKET_NAME", creds.aws_s3_bucket_name)
+    os.environ.setdefault("AWS_S3_ACCESS_KEY", creds.aws_s3_access_key)
+    os.environ.setdefault("AWS_S3_SECRET_ACCESS_KEY", creds.aws_s3_secret_access_key)
+except ImportError:
+    pass
+
+
 
 # def main():
     # createAIVocals(
