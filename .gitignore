@@ -7,3 +7,4 @@ creds.py
 /models/
 /__pycache__/
 venv/
+..bfg-report/
