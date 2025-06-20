@@ -1,7 +1,7 @@
 audio_separator==0.34.1
 boto3==1.38.40
 fairseq==0.12.2
-faiss==1.5.3
+faiss-cpu==1.11.0
 ffmpeg==1.4
 Flask==3.1.1
 flask_cors==6.0.1
