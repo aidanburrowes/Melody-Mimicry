@@ -9,9 +9,7 @@ import requests
 from audio_separator.separator import Separator
 import boto3
 import zipfile
-
-aws_s3_access_key = os.environ["AWS_S3_ACCESS_KEY"]
-aws_s3_secret_access_key = os.environ["AWS_S3_SECRET_ACCESS_KEY"]
+import creds
 
 def createAIVocals(link, song_name, model_name):
     print(link, song_name, model_name)
@@ -37,7 +35,7 @@ def createAIVocals(link, song_name, model_name):
 
     # 3. Download model from AWS S3 bucket and save it to models/{model_name}/
     #    Also download hubert_base.pt if it doesn't exist
-    ensure_model_and_hubert(aws_s3_bucket_name, model_name)
+    ensure_model_and_hubert(creds.aws_s3_bucket_name, model_name)
         
 
     # 4. Use vocals and artist of choice to create AI Vocals
@@ -145,8 +143,8 @@ def combineVocalsAndInstrumentals(vocals_path, instrumentals_path, model_name, s
     return path
 
 def ensure_model_and_hubert(bucket_name, model_name):
-    os.environ["AWS_ACCESS_KEY_ID"] = aws_s3_access_key
-    os.environ["AWS_SECRET_ACCESS_KEY"] = aws_s3_secret_access_key
+    os.environ["AWS_ACCESS_KEY_ID"] = creds.aws_s3_access_key
+    os.environ["AWS_SECRET_ACCESS_KEY"] = creds.aws_s3_secret_access_key
     s3 = boto3.client('s3')
     
     # 1. Download model zip if not already extracted
