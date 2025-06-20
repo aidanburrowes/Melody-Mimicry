@@ -3,7 +3,6 @@ from pydub.playback import play
 from pytube import YouTube
 import os
 import subprocess
-from audio_separator import Separator
 from pathlib import Path
 from rvcgui import selected_model, vc_single
 
