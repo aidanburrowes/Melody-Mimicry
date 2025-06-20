@@ -8,3 +8,5 @@ creds.py
 /__pycache__/
 venv/
 ..bfg-report/
+*__pycache__/
+*.pyc
