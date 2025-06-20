@@ -68,7 +68,7 @@ mdurl==0.1.2
 mpmath==1.3.0
 networkx==3.4.2
 numba==0.56.4
-numpy==1.23.5
+numpy>=1.23,<1.26
 omegaconf==2.0.6
 onnx==1.18.0
 onnx2torch==1.5.15
