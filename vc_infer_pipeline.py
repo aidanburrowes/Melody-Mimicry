@@ -330,7 +330,7 @@ class VC(object):
             pitch = pitch[:p_len]
             pitchf = pitchf[:p_len]
             pitch = torch.tensor(pitch, device=self.device).unsqueeze(0).long()
-            pitchf = torch.tensor(pitchf, device=self.device).unsqueeze(0).float()
+            pitchf = torch.tensor(pitchf.astype(np.float32), device=self.device).unsqueeze(0)
         t2 = ttime()
         times[1] += t2 - t1
         for t in opt_ts:
