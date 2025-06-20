@@ -18,6 +18,10 @@ numpy==1.25.2
 scipy==1.9.3
 soundfile==0.13.1
 praat-parselmouth==0.4.6
+tensorboard==2.19.0
+tensorboard-data-server==0.7.2
+tensorboard-plugin-wit==1.8.1
+tensorboardX==2.6.4
 
 # Utils
 pydub==0.25.1

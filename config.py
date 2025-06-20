@@ -28,39 +28,44 @@ class Config:
         self.x_pad, self.x_query, self.x_center, self.x_max = self.device_config()
 
     def arg_parse(self) -> tuple:
-        parser = argparse.ArgumentParser()
-        parser.add_argument("--port", type=int, default=7865, help="Listen port")
-        parser.add_argument(
-            "--pycmd", type=str, default="python", help="Python command"
-        )
-        parser.add_argument("--colab", action="store_true", help="Launch in colab")
-        parser.add_argument(
-            "--noparallel", action="store_true", help="Disable parallel processing"
-        )
-        parser.add_argument(
-            "--noautoopen",
-            action="store_true",
-            help="Do not open in browser automatically",
-        )
-        parser.add_argument( # this argument (if set to false) allows windows users to avoid the "slow_conv2d_cpu not implemented for 'Half'" exception
-            "--use_gfloat", action="store_true", help="Will use g_float instead of g_half during voice conversion."
-        )
-        parser.add_argument( # Fork Feature. Paperspace integration for web UI
-            "--paperspace", action="store_true", help="Note that this argument just shares a gradio link for the web UI. Thus can be used on other non-local CLI systems."
-        )
-        cmd_opts = parser.parse_args()
+        import sys
+        if len(sys.argv) == 1 or sys.argv[0].endswith("gunicorn"):
+            # Prevent this file from parsing gunicorn args
+            pass
+        else:
+            parser = argparse.ArgumentParser()
+            parser.add_argument("--port", type=int, default=7865, help="Listen port")
+            parser.add_argument(
+                "--pycmd", type=str, default="python", help="Python command"
+            )
+            parser.add_argument("--colab", action="store_true", help="Launch in colab")
+            parser.add_argument(
+                "--noparallel", action="store_true", help="Disable parallel processing"
+            )
+            parser.add_argument(
+                "--noautoopen",
+                action="store_true",
+                help="Do not open in browser automatically",
+            )
+            parser.add_argument( # this argument (if set to false) allows windows users to avoid the "slow_conv2d_cpu not implemented for 'Half'" exception
+                "--use_gfloat", action="store_true", help="Will use g_float instead of g_half during voice conversion."
+            )
+            parser.add_argument( # Fork Feature. Paperspace integration for web UI
+                "--paperspace", action="store_true", help="Note that this argument just shares a gradio link for the web UI. Thus can be used on other non-local CLI systems."
+            )
+            cmd_opts = parser.parse_args()
 
-        cmd_opts.port = cmd_opts.port if 0 <= cmd_opts.port <= 65535 else 7865
+            cmd_opts.port = cmd_opts.port if 0 <= cmd_opts.port <= 65535 else 7865
 
-        return (
-            cmd_opts.pycmd,
-            cmd_opts.port,
-            cmd_opts.colab,
-            cmd_opts.noparallel,
-            cmd_opts.noautoopen,
-            cmd_opts.use_gfloat,
-            cmd_opts.paperspace,
-        )
+            return (
+                cmd_opts.pycmd,
+                cmd_opts.port,
+                cmd_opts.colab,
+                cmd_opts.noparallel,
+                cmd_opts.noautoopen,
+                cmd_opts.use_gfloat,
+                cmd_opts.paperspace,
+            )
 
     def device_config(self) -> tuple:
         if torch.cuda.is_available():
