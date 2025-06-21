@@ -49,31 +49,22 @@ def get_all_songs():
 
 @app.route("/get_song", methods=['POST'])
 def get_song():
-    artist_and_song_request = request.data.decode('UTF8').replace("[", "").replace("]", "").replace("\"","")
-    print(artist_and_song_request)
-    artist_and_song_data = artist_and_song_request.split(',')
-
-    artist_name = artist_and_song_data[0]
-    song_name = artist_and_song_data[1]
-
-    if artist_name == None or song_name == None:
-        return jsonify("Error: Artist or song not found")
-
-    print("Artist name:", artist_name)
-    print("Song name:", song_name)
-
     try:
         data = request.get_json()
-        link = data["link"]
-        song = data["song"]
-        model = data["model"]
+        print("Frontend data:", data)
+
+        link = data.get("link")
+        song = data.get("song")
+        model = data.get("model")
+
+        if not all([link, song, model]):
+            return jsonify("Error: Missing input fields")
 
         response = requests.post(
             BACKEND_URL,
             json={"data": [link, song, model]}
         )
         song_file = response.json()
-
     except Exception as e:
         return jsonify(f"Error: {str(e)}")
 
